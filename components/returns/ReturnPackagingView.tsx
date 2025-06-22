@@ -20,7 +20,7 @@ const ReturnPackagingView: React.FC<ReturnPackagingViewProps> = ({
   return (
     <div className="py-8">
       <div className="flex flex-col sm:flex-row justify-between items-center mb-8 pb-4 border-b border-slate-300 dark:border-slate-700">
-        <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-slate-100 mb-4 sm:mb-0">
+        <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-slate-100 mb-4 sm:mb-0 w-full flex justify-center">
           My Returnable Packaging
         </h2>
         {/* Potentially add a filter or sort options here in future */}
@@ -42,16 +42,28 @@ const ReturnPackagingView: React.FC<ReturnPackagingViewProps> = ({
             </p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {packages.map((pkg) => (
-            <ReturnablePackageCard
-              key={pkg.id}
-              packageData={pkg}
-              onInitiateReturn={() => onInitiateReturn(pkg)}
-              onSimulateProcessing={onSimulateProcessing}
-            />
-          ))}
+        <div className='w-full flex justify-center'>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {packages.map((pkg) => (
+              <ReturnablePackageCard
+                key={pkg.id}
+                packageData={pkg}
+                onInitiateReturn={() => onInitiateReturn(pkg)}
+                onSimulateProcessing={onSimulateProcessing}
+              />
+            ))}
+          </div>
         </div>
+        // <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        //   {packages.map((pkg) => (
+        //     <ReturnablePackageCard
+        //       key={pkg.id}
+        //       packageData={pkg}
+        //       onInitiateReturn={() => onInitiateReturn(pkg)}
+        //       onSimulateProcessing={onSimulateProcessing}
+        //     />
+        //   ))}
+        // </div>
       )}
       <p className="mt-10 text-xs text-center text-slate-500 dark:text-slate-400">
         Help us close the loop! Return your packaging to earn EcoCoins and reduce waste.

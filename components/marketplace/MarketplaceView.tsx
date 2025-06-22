@@ -36,15 +36,26 @@ const MarketplaceView: React.FC<MarketplaceViewProps> = ({ listings, onViewListi
           The marketplace is empty. Be the first to list an item!
         </p>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {listings.map((listing) => (
-            <MarketplaceListingCard
-              key={listing.id}
-              listing={listing}
-              onViewDetails={() => onViewListing(listing)}
-            />
-          ))}
+        <div className='w-full flex justify-center'>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
+              {listings.map((listing) => (
+                <MarketplaceListingCard
+                  key={listing.id}
+                  listing={listing}
+                  onViewDetails={() => onViewListing(listing)}
+                />
+              ))}
+            </div>
         </div>
+        // <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        //   {listings.map((listing) => (
+        //     <MarketplaceListingCard
+        //       key={listing.id}
+        //       listing={listing}
+        //       onViewDetails={() => onViewListing(listing)}
+        //     />
+        //   ))}
+        // </div>
       )}
       <p className="mt-10 text-xs text-center text-slate-500 dark:text-slate-400">
         Buy, sell, or trade pre-loved items to promote a circular economy and reduce waste.

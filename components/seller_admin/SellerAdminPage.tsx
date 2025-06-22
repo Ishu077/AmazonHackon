@@ -131,19 +131,31 @@ const SellerAdminPage: React.FC<SellerAdminPageProps> = ({
         </div>
       </div>
 
-      <h3 className="text-xl font-semibold text-slate-700 dark:text-slate-200 mb-6">Your Listed Products (Simulated)</h3>
+      <h3 className="w-full flex justify-center text-xl font-semibold text-slate-700 dark:text-slate-200 mb-6">Your Listed Products (Simulated)</h3>
       {sellerProducts.length === 0 ? (
         <p className="text-center text-slate-600 dark:text-slate-400 text-lg">You haven't listed any products yet. Click "Add New Product" to start!</p>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {sellerProducts.map((product) => (
-            <SellerProductCard
-              key={product.id}
-              product={product}
-              onRemove={handleRemoveProduct}
-              // onEdit={(p) => alert(`Editing ${p.name} - coming soon!`)}
-            />
-          ))}
+        // <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        //   {sellerProducts.map((product) => (
+        //     <SellerProductCard
+        //       key={product.id}
+        //       product={product}
+        //       onRemove={handleRemoveProduct}
+        //       // onEdit={(p) => alert(`Editing ${p.name} - coming soon!`)}
+        //     />
+        //   ))}
+        // </div>
+        <div className="w-full flex justify-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6 w-fit">
+            {sellerProducts.map((product) => (
+              <SellerProductCard
+                key={product.id}
+                product={product}
+                onRemove={handleRemoveProduct}
+                // onEdit={(p) => alert(`Editing ${p.name} - coming soon!`)}
+              />
+            ))}
+          </div>
         </div>
       )}
 
